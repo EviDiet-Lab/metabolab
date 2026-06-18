@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
-const GA_ID = ''; // 'G-XXXXXXXXXX'
+const GA_ID = 'G-4YKNW7950N';
 
 export default defineConfig({
   site: 'https://EviDiet-Lab.github.io',
