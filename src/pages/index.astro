@@ -1,17 +1,123 @@
 ---
-// Welcome to Astro! https://docs.astro.build
-// Metabolab — EviDiet-Lab
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Metabolab</title>
-  </head>
-  <body>
-    <h1>Metabolab</h1>
-    <p>Welcome to Metabolab — by EviDiet-Lab.</p>
-  </body>
-</html>
+<BaseLayout title="MetaboLab - エビデンス×データで考えるメタボ対策" description="40代〜50代男性のための、科学的エビデンスに基づくメタボ対策メディア。データで裏付けられた効果的な方法をお届けします。">
+  <section class="hero section">
+    <div class="container hero-content">
+      <h1>データが示す、<br />正しいメタボ対策を。</h1>
+      <p>最新の研究データとエビデンスに基づいた、<br />効果的なメタボ改善方法をお届けします。</p>
+      <a href="/metabolab/categories/diet" class="btn btn-primary">記事を読む</a>
+    </div>
+    <div class="hero-image">
+      <img src="https://picsum.photos/seed/metabolab-hero/800/500" alt="MetaboLab" loading="eager" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>カテゴリから探す</h2>
+      <div class="category-grid">
+        <a href="/metabolab/categories/diet" class="card category-card">
+          <span class="category-icon">📋</span>
+          <h3>ダイエット</h3>
+          <p>エビデンスに基づくメタボ改善食事法</p>
+        </a>
+        <a href="/metabolab/categories/exercise" class="card category-card">
+          <span class="category-icon">💪</span>
+          <h3>運動</h3>
+          <p>科学的に効果が実証された運動メニュー</p>
+        </a>
+        <a href="/metabolab/categories/sleep" class="card category-card">
+          <span class="category-icon">📊</span>
+          <h3>睡眠</h3>
+          <p>睡眠データが示すメタボとの関係</p>
+        </a>
+        <a href="/metabolab/categories/recipe" class="card category-card">
+          <span class="category-icon">🍽️</span>
+          <h3>レシピ</h3>
+          <p>栄養バランスの取れた実践的レシピ</p>
+        </a>
+        <a href="/metabolab/categories/mental" class="card category-card">
+          <span class="category-icon">🧠</span>
+          <h3>メンタル</h3>
+          <p>ストレス管理とメタボの関係性</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-tint">
+    <div class="container">
+      <h2>最新の記事</h2>
+      <div class="article-list">
+        <article class="card article-card">
+          <img src="https://picsum.photos/seed/metabolab1/400/250" alt="記事イメージ" loading="lazy" />
+          <div class="article-card-body">
+            <span class="tag">ダイエット</span>
+            <h3>メタボ改善に効く！科学的に正しい糖質制限とは</h3>
+            <p class="article-date">2025-06-18</p>
+            <a href="/metabolab/posts/low-carb-evidence" class="btn btn-outline">続きを読む</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style is:global>
+  .hero {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xl);
+    background: linear-gradient(135deg, #1a252f 0%, var(--color-primary) 100%);
+    color: #fff;
+  }
+  .hero-content { flex: 1; }
+  .hero-content h1 { color: #fff; font-size: var(--font-size-3xl); }
+  .hero-content p { color: var(--color-bg); }
+  .hero-image { flex: 1; }
+  .hero-image img { border-radius: var(--border-radius-lg); width: 100%; }
+
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--space-md);
+  }
+  .category-card {
+    text-decoration: none;
+    color: var(--color-text);
+    transition: transform 0.2s;
+  }
+  .category-card:hover {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+  .category-icon { font-size: 2rem; display: block; margin-bottom: var(--space-sm); }
+  .category-card h3 { font-size: var(--font-size-lg); margin-top: 0; }
+  .category-card p { font-size: var(--font-size-sm); color: var(--color-text-light); }
+
+  .bg-tint { background: #eef0f2; }
+
+  .article-list { display: flex; flex-direction: column; gap: var(--space-lg); }
+  .article-card {
+    display: flex;
+    gap: var(--space-lg);
+    overflow: hidden;
+  }
+  .article-card img {
+    width: 280px;
+    min-height: 180px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  .article-card-body { flex: 1; }
+  .article-date { font-size: var(--font-size-sm); color: var(--color-text-light); }
+
+  @media (max-width: 640px) {
+    .hero { flex-direction: column; }
+    .article-card { flex-direction: column; }
+    .article-card img { width: 100%; }
+    .category-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://EviDiet-Lab.github.io/metabolab/sitemap-index.xml
